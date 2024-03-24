@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{admin/layout_admin}">
+
+
+<head>
+  <meta charset="UTF-8">
+  <title>Home - ESSENCE</title>
+  <style>
+    textarea {
+      resize: both;
+    }
+  </style>
+
+</head>
+<body>
+<div layout:fragment="layout_admin">
+  <div class="right_col" role="main" style=" min-height: 900.8px;">
+    <div class="">
+
+
+
+      <div class="form-horizontal">
+        <h2> View product </h2>
+      </div>
+
+      <div class="container" style="padding-top:60px;">
+        <div class="row d-flex justify-content-center align-items-center">
+          <div class="col-md-6 card border rounded-4">
+            <h2 class="text-center">Detail Product</h2>
+            <hr>
+
+            <dl class="row" style="margin-left:120px;">
+
+                <dt class="col-sm-3">Image:</dt>
+                <img th:src="${product.imgProduct}" style="width: 260px;">
+              <br/>
+                <dt class="col-sm-3">Name Product:</dt>
+                <dd class="col-sm-9" th:text="${product.nameProduct}"></dd>
+                <dt class="col-sm-3">Price Product:</dt>
+                <dd class="col-sm-9" th:text="${product.priceProduct} + '$'"></dd>
+              <dt class="col-sm-3">Note:</dt>
+                <dd class="col-sm-9" th:text="${product.desProduct}"></dd>
+                <dt class="col-sm-3">View Product:</dt>
+                <dd class="col-sm-9" th:text="${product.viewProduct + ' view'}"></dd>
+                <dt class="col-sm-3">Category:</dt>
+                <dd class="col-sm-9" th:text="${product.category.name}"></dd>
+
+            </dl>
+            <div class="text-center">
+              <a class="btn btn-primary btn-xs" th:href="@{/admin/product}">Back to page</a>
+              <a class="btn btn-danger btn-xs" href="/Admin/Khachhang/Suakh/1">Edit</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <style>
+        dt {
+          font-weight: bold;
+        }
+
+        hr {
+          border-color: #999999;
+        }
+      </style>
+
+
+    </div>
+  </div>
+</div>
+</body>
+</html>

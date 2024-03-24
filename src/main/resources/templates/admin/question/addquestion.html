@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{admin/layout_admin}">
+
+
+<head>
+  <meta charset="UTF-8">
+  <title>Home - ESSENCE</title>
+
+</head>
+<body>
+<div layout:fragment="layout_admin">
+  <div class="right_col" role="main" style="min-height: 1278.8px;">
+  <div class="page-title">
+    <div class="title_left">
+      <h3>Form Add category</h3>
+    </div>
+
+    <div class="title_right">
+      <div class="col-md-5 col-sm-5  form-group pull-right top_search">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Search for...">
+          <span class="input-group-btn">
+										<button class="btn btn-default" type="button">Go!</button>
+									</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12 col-sm-12 ">
+      <div class="x_panel">
+        <div class="x_title">
+
+          <ul class="nav navbar-right panel_toolbox">
+            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a class="dropdown-item" href="#">Settings 1</a>
+                </li>
+                <li><a class="dropdown-item" href="#">Settings 2</a>
+                </li>
+              </ul>
+            </li>
+            <li><a class="close-link"><i class="fa fa-close"></i></a>
+            </li>
+          </ul>
+          <div class="clearfix"></div>
+        </div>
+        <div class="x_content">
+          <br>
+          <form  data-parsley-validate="" class="form-horizontal form-label-left"
+              th:action="@{/question/savequestion}" th:object="${question}" method="POST">
+         <!--   <div class="item form-group">
+              <label class="col-form-label col-md-3 col-sm-3 label-align">ID <span class="required">*</span>
+              </label>
+              <div class="col-md-6 col-sm-6 ">
+                <input type="text" th:field="*{id}" required="required" class="form-control" >
+              </div>
+            </div>-->
+            <div class="item form-group">
+              <label class="col-form-label col-md-3 col-sm-3 label-align">Quiz Name <span class="required">*</span>
+              </label>
+              <div class="col-md-6 col-sm-6 ">
+                <input type="text" th:field="*{questions}" required="required" class="form-control" placeholder="Questions">
+              </div>
+            </div>
+            <div class="item form-group">
+              <label class="col-form-label col-md-3 col-sm-3 label-align">Quiz Name <span class="required">*</span>
+              </label>
+              <div class="col-md-6 col-sm-6 ">
+                <input type="text" th:field="*{answersA}" required="required" class="form-control" placeholder="answersA">
+              </div>
+            </div>
+            <div class="item form-group">
+              <label class="col-form-label col-md-3 col-sm-3 label-align">Quiz Name <span class="required">*</span>
+              </label>
+              <div class="col-md-6 col-sm-6 ">
+                <input type="text" th:field="*{answersB}" required="required" class="form-control" placeholder="answersB">
+              </div>
+            </div>
+            <div class="item form-group">
+              <label class="col-form-label col-md-3 col-sm-3 label-align">Quiz Name <span class="required">*</span>
+              </label>
+              <div class="col-md-6 col-sm-6 ">
+                <input type="text" th:field="*{answersC}" required="required" class="form-control" placeholder="answersC">
+              </div>
+            </div>
+            <div class="item form-group">
+              <label class="col-form-label col-md-3 col-sm-3 label-align">Quiz Name <span class="required">*</span>
+              </label>
+              <div class="col-md-6 col-sm-6 ">
+                <input type="text" th:field="*{answersD}" required="required" class="form-control" placeholder="answersD">
+              </div>
+            </div>
+            <div class="item form-group">
+              <label class="col-form-label col-md-3 col-sm-3 label-align" for="answers">Category: </label>
+              <div class="col-md-6 col-sm-6">
+                <select class="form-control" id="answers" name="answers.id">
+                  <option value="">-- Select Category --</option>
+                  <option th:each="answers: ${listanswer}" th:value="${answers.id}" th:text="${answers.correct}"></option>
+                </select>
+              </div>
+            </div>
+            <div class="item form-group">
+              <label class="col-form-label col-md-3 col-sm-3 label-align" for="quiz">Quiz: </label>
+              <div class="col-md-6 col-sm-6">
+                <select class="form-control" id="quiz" name="quiz.quizId">
+                  <option value="">-- Select Category --</option>
+                  <option th:each="quiz: ${listquiz}" th:value="${quiz.quizId}" th:text="${quiz.nameQuiz}"></option>
+                </select>
+              </div>
+            </div>
+            <div class="ln_solid"></div>
+            <div class="item form-group">
+              <div class="col-md-6 col-sm-6 offset-md-3">
+                <a th:href="@{/quiz}" class="btn btn-primary" type="button">Cancel</a>
+                <button type="submit" class="btn btn-success">Submit</button>
+              </div>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+</body>
+</html>
