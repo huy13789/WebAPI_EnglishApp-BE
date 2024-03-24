@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{admin/layout_admin}">
+
+
+<head>
+    <meta charset="UTF-8">
+    <title>Home - ESSENCE</title>
+
+</head>
+<body>
+<div layout:fragment="layout_admin" >
+    <div class="right_col" role="main" style="min-height: 1278.8px;">
+        <div class="">
+            <div class="page-title">
+                <div class="title_left">
+                    <a type="button" th:href="@{/quizListen/addquiz}" class="btn btn-round btn-primary">Add Quiz</a>
+                </div>
+
+                <div class="title_right">
+                    <div class="col-md-5 col-sm-5   form-group pull-right top_search">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Search for...">
+                            <span class="input-group-btn">
+                      <button class="btn btn-secondary" type="button">Go!</button>
+                    </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="clearfix"></div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="x_panel">
+                        <div class="x_title">
+                            <h2>Quiz</h2>
+                            <ul class="nav navbar-right panel_toolbox">
+                                <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                        <a class="dropdown-item" href="#">Settings 1</a>
+                                        <a class="dropdown-item" href="#">Settings 2</a>
+                                    </div>
+                                </li>
+                                <li><a class="close-link"><i class="fa fa-close"></i></a>
+                                </li>
+                            </ul>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="x_content">
+                            <!-- start project list -->
+                            <table class="table table-hover">
+                                <thead>
+                                <tr>
+                                    <th style="width: 10%">QuizID</th>
+                                    <th style="width: 30%">Quiz</th>
+                                    <th style="width: 30%">Category</th>
+                                    <th style="width: 50%">Action</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+
+                              <tr th:each="quiz : ${listquiz}">
+                                    <td th:text="${quiz.quizId}"></td>
+                                    <td th:text="${quiz.nameQuiz}"></td>
+                                    <td th:text="${quiz.category.nameCategory}"></td>
+                                    <td>
+                                        <a th:href="@{quizListen/editquiz/{id}(id=${quiz.quizId})}"  class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Edit </a>
+                                        <a th:href="@{quizListen/deletequiz/{id}(id=${quiz.quizId})}" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Delete </a>
+                                    </td>
+                                </tr>
+
+                                </tbody>
+                            </table>
+                            <!-- end project list -->
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>>

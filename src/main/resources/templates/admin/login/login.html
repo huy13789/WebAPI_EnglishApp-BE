@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Login Form</title>
+  <!-- Bootstrap -->
+  <link href="/admin/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link href="/admin/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <!-- Custom Styles -->
+  <link href="/css/custom-login.css" rel="stylesheet">
+</head>
+<body class="login">
+<div class="login_wrapper">
+  <div class="animate form login_form">
+    <section class="login_content">
+      <form th:action="@{/admin/login}" method="post">
+        <h1 class="text-center mb-4">Login</h1>
+        <div th:if="${param.error}" class="alert alert-danger">
+          Invalid username and password.
+        </div>
+        <div th:if="${param.logout}" class="alert alert-success">
+          You have been logged out.
+        </div>
+        <div class="mb-3">
+          <label for="username" class="form-label">Username:</label>
+          <input type="text" required class="form-control" id="username" name="username">
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Password:</label>
+          <input type="password" required class="form-control" id="password" name="password">
+        </div>
+        <div class="mb-3 form-check">
+          <input type="checkbox" class="form-check-input" id="remember-me" name="remember-me">
+          <label class="form-check-label" for="remember-me">Remember me</label>
+        </div>
+        <button type="submit" class="btn btn-primary w-100">Login</button>
+      </form>
+    </section>
+  </div>
+</div>
+</body>
+</html>
