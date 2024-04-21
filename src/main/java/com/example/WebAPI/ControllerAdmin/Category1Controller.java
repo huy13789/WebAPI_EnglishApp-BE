@@ -1,4 +1,4 @@
-package com.example.WebAPI.controller;
+package com.example.WebAPI.ControllerAdmin;
 
 import com.example.WebAPI.model.Category;
 import com.example.WebAPI.service.CategoryService;

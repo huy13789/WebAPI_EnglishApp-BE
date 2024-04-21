@@ -1,4 +1,4 @@
-package com.example.WebAPI.controller;
+package com.example.WebAPI.ControllerAdmin;
 
 import com.example.WebAPI.model.Questions;
 import com.example.WebAPI.service.AnswersService;
